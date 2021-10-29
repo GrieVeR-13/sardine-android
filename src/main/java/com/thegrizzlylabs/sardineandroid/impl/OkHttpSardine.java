@@ -493,8 +493,10 @@ public class OkHttpSardine implements Sardine {
     public DavQuota getQuota(String url) throws IOException {
         Propfind body = new Propfind();
         Prop prop = new Prop();
-        prop.setQuotaAvailableBytes(new QuotaAvailableBytes());
-        prop.setQuotaUsedBytes(new QuotaUsedBytes());
+//        prop.setQuotaAvailableBytes(new QuotaAvailableBytes());
+//        prop.setQuotaUsedBytes(new QuotaUsedBytes());
+        prop.setQuotaAvailableBytesString("");
+        prop.setQuotaUsedBytesString("");
         body.setProp(prop);
 
         RequestBody requestBody = RequestBody.create(SardineUtil.toXml(body), MediaType.parse("text/xml"));

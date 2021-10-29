@@ -81,11 +81,18 @@ public class Prop implements EntityWithAnyElement {
     @Element(required = false)
     protected Supportedlock supportedlock;
 
-    @Element(name = "quota-available-bytes", required = false)
+//    @Element(name = "quota-available-bytes", required = false)
     protected QuotaAvailableBytes quotaAvailableBytes;
 
-    @Element(name = "quota-used-bytes", required = false)
+//    @Element(name = "quota-used-bytes", required = false)
     protected QuotaUsedBytes quotaUsedBytes;
+
+    @Element(name = "quota-available-bytes", required = false)
+    protected String quotaAvailableBytesString;
+
+    @Element(name = "quota-used-bytes", required = false)
+    protected String quotaUsedBytesString;
+
 
     protected List<org.w3c.dom.Element> any;
 
@@ -222,6 +229,19 @@ public class Prop implements EntityWithAnyElement {
     }
 
     /**
+     * String value
+     * @return
+     */
+
+    public String getQuotaAvailableBytesString() {
+        return quotaAvailableBytesString;
+    }
+
+    public void setQuotaAvailableBytesString(String value) {
+        this.quotaAvailableBytesString = value;
+    }
+
+    /**
      * Gets the value of the quotaUsedBytes property.
      *
      * @return possible object is
@@ -239,6 +259,18 @@ public class Prop implements EntityWithAnyElement {
      */
     public void setQuotaUsedBytes(QuotaUsedBytes value) {
         this.quotaUsedBytes = value;
+    }
+
+    /**
+     * String value
+     * @return
+     */
+    public String getQuotaUsedBytesString() {
+        return quotaUsedBytesString;
+    }
+
+    public void setQuotaUsedBytesString(String value) {
+        this.quotaUsedBytesString = value;
     }
 
     /**
