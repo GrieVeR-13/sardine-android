@@ -212,6 +212,9 @@ public interface Sardine
 	 */
 	void put(String url, byte[] data, String contentType) throws IOException;
 
+	void put(String url, byte[] data, int offset, int count, String contentType, Map<String, String> headers) throws IOException;
+
+
 	/**
 	 * Uses <code>PUT</code> to send data to a server with a specific content
 	 * type header. Not repeatable on authentication failure.

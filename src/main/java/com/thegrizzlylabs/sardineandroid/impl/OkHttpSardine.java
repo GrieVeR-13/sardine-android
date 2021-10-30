@@ -303,6 +303,13 @@ public class OkHttpSardine implements Sardine {
     }
 
     @Override
+    public void put(String url, byte[] data, int offset, int count, String contentType, Map<String, String> headers) throws IOException {
+        MediaType mediaType = contentType == null ? null : MediaType.parse(contentType);
+        RequestBody requestBody = RequestBody.create(data, mediaType, offset, count);
+        put(url, requestBody, Headers.of(headers));
+    }
+
+    @Override
     public void put(String url, File localFile, String contentType) throws IOException {
         //don't use ExpectContinue for repetable FileEntity, some web server (IIS for exmaple) may return 400 bad request after retry
         put(url, localFile, contentType, false);
